@@ -1,0 +1,14 @@
+
+ionic cordova run android --release
+
+mv /home/thabung/code/per/starter/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ~/Desktop/xquote.apk
+
+cd ~/Desktop
+
+keytool -genkey -v -keystore xquote.keystore -alias xquote -keyalg RSA -keysize 2048 -validity 10000
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore /home/thabung/Desktop/xquote.keystore ./xquote.apk xquote
+
+cd ~/android-sdk-linux/build-tools/27.0.1
+./zipalign -v 4 ~/Desktop/xquote.apk ~/Desktop/xquotev1.apk
+
