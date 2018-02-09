@@ -1,5 +1,7 @@
 
-ionic cordova run android --release
+Build the apk with release flag
+ ionic cordova run android --release
+
 
 mv /home/thabung/code/per/starter/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ~/Desktop/xquote.apk
 
